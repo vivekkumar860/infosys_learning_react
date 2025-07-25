@@ -1,0 +1,124 @@
+.card-container {
+  width: 320px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 28px rgba(60,80,120,0.10);
+  margin: 48px auto 0 auto;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #333;
+  /* Reset flex logic for classic card look */
+  display: block;
+  transition: box-shadow 0.18s;
+}
+
+/* ---- Header bar using ::before pseudo ---- */
+.card-container::before {
+  content: "";
+  display: block;
+  background: #96a6b4;
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 1;
+}
+
+/* ---- Initials avatar bubble ---- */
+.card-container > span[initials] {
+  position: absolute;
+  left: 26px;
+  top: 14px;
+  width: 34px;
+  height: 34px;
+  background: #e7eaf0;
+  color: #96a6b4;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px #adc6cf13;
+  border: none;
+  z-index: 2;
+}
+/* show the initials with a pseudo-element */
+.card-container > span[initials]::after {
+  content: attr(initials);
+}
+
+/* ---- Name header ---- */
+.card-container > header {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.13em;
+  margin: 0;
+  padding: 17px 0 12px 70px;
+  background: transparent;
+  letter-spacing: 0.04em;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px 15px 0 0;
+  box-sizing: border-box;
+}
+
+/* ---- Info area like a paper sheet ---- */
+.card-container > main {
+  background: #fff;
+  padding: 30px 28px 20px 28px;
+  border-radius: 0 0 15px 15px;
+  margin: 0;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Info List Styling ---- */
+.card-container main ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-container main li {
+  display: flex;
+  align-items: center;
+  padding: 9px 0;
+  font-size: 1.02em;
+  border-bottom: 1px solid #e8e9f0;
+}
+
+.card-container main li:last-child {
+  border-bottom: none;
+}
+
+.card-container main li span {
+  color: #b1b7c6;
+  font-weight: 600;
+  font-size: 0.96em;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  margin-right: 18px;
+  min-width: 86px;
+  display: inline-block;
+}
+
+/* The data part, following the label <span> */
+.card-container main li span + * {
+  color: #222;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Body background for subtle blue */
+body {
+  background: #eaf2fa;
+}
